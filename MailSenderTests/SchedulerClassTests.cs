@@ -20,9 +20,9 @@ namespace MailSender.Tests
             ts = new TimeSpan(); // возвращаем в случае ошибочно введенного времени
             sc.DatesEmailTexts = new Dictionary<DateTime, string>()
             {
-                { new DateTime(2016, 12, 24, 22, 0, 0), "text1" },
-                { new DateTime(2016, 12, 24, 22, 30, 0), "text2" },
-                { new DateTime(2016, 12, 24, 23, 0, 0), "text3" }
+                { new DateTime(2017, 8, 24, 22, 0, 0), "text1" },
+                { new DateTime(2017, 8, 24, 22, 30, 0), "text2" },
+                { new DateTime(2017, 8, 24, 23, 0, 0), "text3" }
             };
         }
 
@@ -66,9 +66,9 @@ namespace MailSender.Tests
         [TestMethod()]
         public void TimeTick_Dictionare_correct()
         {
-            DateTime dt1 = new DateTime(2016, 12, 24, 22, 0, 0);
-            DateTime dt2 = new DateTime(2016, 12, 24, 22, 30, 0);
-            DateTime dt3 = new DateTime(2016, 12, 24, 23, 0, 0);
+            DateTime dt1 = new DateTime(2017, 8, 24, 22, 0, 0);
+            DateTime dt2 = new DateTime(2017, 8, 24, 22, 30, 0);
+            DateTime dt3 = new DateTime(2017, 8, 24, 23, 0, 0);
 
             if (sc.DatesEmailTexts.Keys.First<DateTime>().ToShortTimeString() == dt1.ToShortTimeString())
             {

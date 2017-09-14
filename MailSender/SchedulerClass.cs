@@ -8,15 +8,14 @@ using System.Collections.Generic;
 
 namespace MailSender
 {
-    /// <summary>
-    /// Класс планировщик, который создает расписание, следит за его выполнением и напоминает о событиях
-    /// Так же помогает автоматизировать рассылку писем в соответствии с расписанием
-    /// </summary>
+    
+    // Класс планировщик
+    
     public class SchedulerClass
     {
         DispatcherTimer timer = new DispatcherTimer(); // таймер 
         EmailSendServiceClass emailSender; // экземпляр класса отвечающего за отправку писем
-        //DateTime dtSend; // дата и время отправки
+        
         IQueryable<Emails> emails; // коллекция email'ов адресатов
 
         Dictionary<DateTime, string> dicDates = new Dictionary<DateTime, string>();
@@ -30,11 +29,9 @@ namespace MailSender
             }
         }
 
-        /// <summary>
-        /// Методе который превращаем строку из текстбокса tbTimePicker в TimeSpan
-        /// </summary>
-        /// <param name="strSendTime"></param>
-        /// <returns></returns>
+        
+        /// Метод которым превращаем строку из текстбокса tbTimePicker в TimeSpan
+        
         public TimeSpan GetSendTime(string strSendTime)
         {
             TimeSpan tsSendTime = new TimeSpan();
@@ -47,16 +44,13 @@ namespace MailSender
             return tsSendTime;
         }
 
-        /// <summary>
+        
         ////Непостредственно отправка писем
-        /// </summary>
-        /// <param name="dtSend"></param>
-        /// <param name="emailSender"></param>
-        /// <param name="emails"></param>
+        
         public void SendEmails(/*DateTime dtSend,*/ EmailSendServiceClass emailSender, IQueryable<Emails> emails)
         {
             this.emailSender = emailSender; // Экземпляр класса отвечающего за отправку писем присваиваем 
-            //this.dtSend = dtSend;
+            
             this.emails = emails;
             timer.Tick += Timer_Tick;
             timer.Interval = new TimeSpan(0, 0, 1);
@@ -77,7 +71,7 @@ namespace MailSender
                 emailSender.SendMails(emails);
                 dicDates.Remove(dicDates.Keys.First<DateTime>());
             }
-        }//private void Timer_Tick(object sender, EventArgs e)
+        }
 
     }
 }

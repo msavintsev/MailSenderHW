@@ -97,13 +97,12 @@ namespace EmailSendServiceDLL
         {
             foreach (Emails email in emails)
             {
-                //SendMail(email.Value, email.Name);
-                //Task.Factory.StartNew(() => SendMail(email.Value, email.Name));
+                
 
                 Thread thread = new Thread(new ParameterizedThreadStart(SendMail));
                 thread.Start(email);
 
             }
         }
-    }//private void SendMail(string mail, string name)
+    }
 }

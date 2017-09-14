@@ -3,9 +3,7 @@ using System.Windows.Controls;
 
 namespace TabSwitcher
 {
-    /// <summary>
-    /// Interaction logic for TabSwitcherControl.xaml
-    /// </summary>
+   
     public partial class TabSwitcherControl : UserControl
     {
         public TabSwitcherControl()
